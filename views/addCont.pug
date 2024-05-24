@@ -1,0 +1,55 @@
+doctype html 
+html 
+  head
+    title Contraseñas
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/css/styles.css')
+  body
+    h1 Agregar nueva contraseña
+
+    form
+      label(for='contrasenia') Contraseña: 
+      input(type='password' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()')
+      p#feedback
+
+    script.
+      function comprobarSecCont() {
+        var contrasenia = document.getElementById('contrasenia').value;
+        var mensaje = '';
+        var segura = true;
+        
+        if (contrasenia.length < 8) {
+          segura = false;
+          mensaje += 'La contraseña debe tener al menos 8 caracteres. ';
+        }
+
+        if (!/[A-Z]/.test(contrasenia)) {
+          segura = false;
+          mensaje += 'La contraseña debe contener al menos una letra mayúscula. ';
+        }
+
+        if (!/[a-z]/.test(contrasenia)) {
+          segura = false;
+          mensaje += 'La contraseña debe contener al menos una letra minúscula. ';
+        }
+
+        if (!/[0-9]/.test(contrasenia)) {
+          segura = false;
+          mensaje += 'La contraseña debe contener al menos un número. ';
+        }
+
+        if (!/[!@#\$%\^&\*]/.test(contrasenia)) {
+          segura = false;
+          mensaje += 'La contraseña debe contener al menos un carácter especial (!@#$%^&*). ';
+        }
+
+        
+        var feedback = document.getElementById('feedback');
+        if (segura) {
+          feedback.style.color = 'green';
+          feedback.textContent = 'La contraseña es segura.';
+        } else {
+          feedback.style.color = 'red';
+          feedback.textContent = mensaje;
+        }
+      }
