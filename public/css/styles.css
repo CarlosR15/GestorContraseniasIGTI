@@ -13,6 +13,14 @@ body {
 
 .contenedor-gen {
   background-color: #23235B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formlogin {
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=styles.css.map */
