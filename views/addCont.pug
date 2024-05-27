@@ -5,12 +5,13 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
-    h1 Agregar nueva contraseña
-
-    form
-      label(for='contrasenia') Contraseña: 
-      input(type='password' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()')
-      p#feedback
+    .contenedor-gen
+      h1 Agregar nueva contraseña
+  
+      form
+        label(for='contrasenia') Contraseña: 
+        input(type='password' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()')
+        p#respuesta
 
     script.
       function comprobarSecCont() {
@@ -44,12 +45,12 @@ html
         }
 
         
-        var feedback = document.getElementById('feedback');
+        var respuesta = document.getElementById('respuesta');
         if (segura) {
-          feedback.style.color = 'green';
-          feedback.textContent = 'La contraseña es segura.';
+          respuesta.style.color = 'green';
+          respuesta.textContent = 'La contraseña es segura.';
         } else {
-          feedback.style.color = 'red';
-          feedback.textContent = mensaje;
+          respuesta.style.color = 'red';
+          respuesta.textContent = mensaje;
         }
       }

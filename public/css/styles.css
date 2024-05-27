@@ -1,6 +1,18 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #3B3B98;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  color: #dbd8d8;
+}
+
+.contenedor-gen {
+  background-color: #23235B;
 }
 
 /*# sourceMappingURL=styles.css.map */
