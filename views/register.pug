@@ -1,0 +1,23 @@
+doctype html 
+html 
+    head
+        title Registro
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/css/styles.css')
+    body
+      .contenedor-gen
+        h2 Registrate
+        form.formlogin(action='/register-user' method='POST' class='registro-form')
+          label(for='nombre' class='form-label' id='labelform') Nombre
+          input(type='text' name='nombre' id='nombre' placeholder='Ingrese su Nombre' class='form-input', required)
+
+          label(for='email' class='form-label' id='labelform') Email
+          input(type='email' name='email' id='email' placeholder='Ingrese su Correo' class='form-input', required)
+
+          label(for='password' class='form-label' id='labelform') Contraseña
+          input(type='password' name='password' id='password' placeholder='Ingrese su Contraseña' class='form-input', required)
+
+          button(type='submit') Registrarse
+
+        p ¿Ya tienes una cuenta? 
+          a(href='/') Inicia Sesión

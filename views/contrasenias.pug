@@ -5,14 +5,17 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
-    .contenedor-gen
+
+    .contenedor-gal
       //-if cualquiera para ver que funcione, ya que no se han declarado variables
       if 0 == 0 
-        //-each cont in contrasenias
+        //-each cont in contrasenias (no va a jalar, se tiene que cambiar dio mio)
         .contrasenias-container
-          p Aqui va el correo
-          p Aqui va el usuario 
-          p Aqui va la contrasenia 
-              i.fas.fa-search
+          h3 Google
+          .datosCont-container
+            p Aqui va el correo
+            p Aqui va el usuario 
+            p Aqui va la contrasenia 
+                i.fas.fa-search
       else
         p No se encontraron resultados.

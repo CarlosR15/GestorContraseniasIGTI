@@ -16,11 +16,34 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 80vh;
+  width: 80%;
+}
+
+.contenedor-gal {
+  background-color: #23235B;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  max-width: 80vw;
+  width: 100%;
+}
+.contenedor-gal h3 {
+  margin-left: 10px;
+}
+.contenedor-gal p {
+  margin-left: 4px;
+}
+
+.datosCont-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .formlogin {
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 /*# sourceMappingURL=styles.css.map */

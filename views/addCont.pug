@@ -8,7 +8,15 @@ html
     .contenedor-gen
       h1 Agregar nueva contraseña
   
-      form
+      form.formlogin
+        select(name='sitioPaGuardar' id='sitio-elegido') 
+          option(value="0" class='opcion' disabled selected) Selecciona para que pagina es la contraseña
+          option(value="png" class='opcion') Google
+          option(value="jpeg" class='opcion') Facebook
+          option(value="webp" class='opcion') Otro
+
+        label(for='username') Usuario 
+        input(type='text' id='usuario' name='usuario' required)
         label(for='contrasenia') Contraseña: 
         input(type='password' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()')
         p#respuesta
@@ -21,27 +29,27 @@ html
         
         if (contrasenia.length < 8) {
           segura = false;
-          mensaje += 'La contraseña debe tener al menos 8 caracteres. ';
+          mensaje += 'La contraseña minimo 8 caracteres. ';
         }
 
         if (!/[A-Z]/.test(contrasenia)) {
           segura = false;
-          mensaje += 'La contraseña debe contener al menos una letra mayúscula. ';
+          mensaje += 'La contraseña debe tener minimo una letra mayúscula. ';
         }
 
         if (!/[a-z]/.test(contrasenia)) {
           segura = false;
-          mensaje += 'La contraseña debe contener al menos una letra minúscula. ';
+          mensaje += 'La contraseña debe tener minimo una letra minúscula. ';
         }
 
         if (!/[0-9]/.test(contrasenia)) {
           segura = false;
-          mensaje += 'La contraseña debe contener al menos un número. ';
+          mensaje += 'La contraseña debe tener minimo un número. ';
         }
 
-        if (!/[!@#\$%\^&\*]/.test(contrasenia)) {
+        if (!/[!@#$%^&*()-_+=<>?]/.test(contrasenia)) {
           segura = false;
-          mensaje += 'La contraseña debe contener al menos un carácter especial (!@#$%^&*). ';
+          mensaje += 'La contraseña debe tener minimo un carácter especial (!@#$%^&*()-_+=<>?). ';
         }
 
         

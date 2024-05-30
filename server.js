@@ -3,7 +3,9 @@ const dotenv = require('dotenv');
 const session = require('express-session');
 const app = express();
 const passport = require('passport');
+const authMiddleWare = require('./middlewares/autenticacion');
 const LocalStrategy = require('passport-local').Strategy;
+const usuarioController = require('./controllers/usuariosCont'); // Archivo contenedor de querys para MySQL
 const path = require('path');
 const router = require('./routes/routes');
 
