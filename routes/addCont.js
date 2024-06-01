@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const dbSitio = require('../controllers/sitiosCont');
+const reqIniSes = require('../middlewares/autenticacion');
 
-router.get('/', (req, res) => {
+router.get('/', reqIniSes.authenticate, async (req, res) => {
     res.render('addCont');
 });
 

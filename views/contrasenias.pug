@@ -5,7 +5,18 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
-
+    nav
+      ul
+           
+        a(href='/logout') 
+          button Cerrar Sesion
+           
+        a(href='/addCont') 
+          button Agregar Contraseña
+  
+    form(action='/search', method='GET' class='search-bar')
+      input(type='text', name='q', placeholder='Buscar contraseñas')
+      button(type='submit') Buscar
     .contenedor-gal
       //-if cualquiera para ver que funcione, ya que no se han declarado variables
       if 0 == 0 

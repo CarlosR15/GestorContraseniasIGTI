@@ -5,21 +5,24 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
+    a(href="/genCont") 
+      button Generar contraseña segura
+    a(href="/addSitioWeb") 
+      button Agregar sitio web
     .contenedor-gen
       h1 Agregar nueva contraseña
   
       form.formlogin
         select(name='sitioPaGuardar' id='sitio-elegido') 
           option(value="0" class='opcion' disabled selected) Selecciona para que pagina es la contraseña
-          option(value="png" class='opcion') Google
-          option(value="jpeg" class='opcion') Facebook
-          option(value="webp" class='opcion') Otro
 
-        label(for='username') Usuario 
+        label(for='username') Usuario:
         input(type='text' id='usuario' name='usuario' required)
         label(for='contrasenia') Contraseña: 
         input(type='password' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()')
         p#respuesta
+
+        button(type='submit') Guardar Contraseña
 
     script.
       function comprobarSecCont() {
@@ -62,3 +65,18 @@ html
           respuesta.textContent = mensaje;
         }
       }
+
+      async function cargarSitios() {
+        const response = await fetch('/obtenerSitios');
+        const sitios = await response.json();
+        const select = document.getElementById('sitio-elegido');
+      
+        sitios.forEach(sitio => {
+          const option = document.createElement('option');
+          option.value = sitio.id;
+          option.textContent = sitio.name;
+          select.appendChild(option);
+        });
+      }
+
+      window.onload = cargarSitios;
