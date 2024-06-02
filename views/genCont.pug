@@ -5,8 +5,49 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
+    a(href="/addCont")
+      button <- Regresar
     .contenedor-gen
       h1 Generar Contraseña Segura
-      p #{contrasenia}
-      a(href="/genCont") 
-              button Generar
+      form(action='/addCont' method='post')
+        input(type='text', name='contrasenia', id='contraseniaInput', value=contrasenia)
+        button(type='submit') Guardar
+      form(action='/genCont' method='post')
+        .slider-container
+          span.slider-label Cuantos caracteres: 
+          span.char-count(id='charCount') 12
+          br
+          span 8
+            input#slider(type='range', name='tamanio', min='8', max='28', value='12')
+          span 28
+
+          br
+          label 
+            input(type='checkbox', name='mayus', checked) 
+            | Inlcuir letras mayusculas 
+          br
+          label 
+            input(type='checkbox', name='minus', checked)
+            | Inlcuir letras minusculas 
+          br
+          label
+            input(type='checkbox', name='num', checked)
+            | Inlcuir números
+          br
+          label
+            input(type='checkbox', name='caracEsp', checked)
+            | Incluir caracteres especiales
+
+          br
+          button(type='submit') Generar
+    script.
+      const slider = document.getElementById('slider');
+      const charCount = document.getElementById('charCount');
+      
+      // Actualizar el charCount de una vez
+      charCount.textContent = slider.value;
+
+      // Actualizar el charCount cuando el slider cambie 
+      slider.addEventListener('input', function() {
+        charCount.textContent = slider.value;
+      });

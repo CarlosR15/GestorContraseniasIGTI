@@ -27,11 +27,20 @@ body {
   align-items: left;
   max-width: 80vw;
   width: 100%;
+  margin-bottom: 1%;
 }
 .contenedor-gal h3 {
   margin-left: 10px;
 }
-.contenedor-gal p {
+
+.contenedor-cont-info {
+  border-bottom: solid;
+  border-top: solid;
+  border-color: #8496f5;
+  margin-bottom: 0.5%;
+}
+.contenedor-cont-info p {
+  border-color: #8496f5;
   margin-left: 4px;
 }
 

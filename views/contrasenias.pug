@@ -17,16 +17,16 @@ html
     form(action='/search', method='GET' class='search-bar')
       input(type='text', name='q', placeholder='Buscar contraseñas')
       button(type='submit') Buscar
-    .contenedor-gal
-      //-if cualquiera para ver que funcione, ya que no se han declarado variables
-      if 0 == 0 
-        //-each cont in contrasenias (no va a jalar, se tiene que cambiar dio mio)
-        .contrasenias-container
-          h3 Google
-          .datosCont-container
-            p Aqui va el correo
-            p Aqui va el usuario 
-            p Aqui va la contrasenia 
-                i.fas.fa-search
+    if sitios.length > 0
+      each sitio in sitios
+        .contenedor-gal
+          h3 #{sitio.name}
+          h3 #{sitio.url}
+          - const contraseniasSitio = contrasenias.filter(cont => cont.sitio_id === sitio.id)
+          each cont in contraseniasSitio
+            .contenedor-cont-info
+              p Usuario: #{cont.usuario}
+              p Contraseña: #{cont.contrasenia}
+
       else
         p No se encontraron resultados.

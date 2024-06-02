@@ -5,6 +5,8 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
+    a(href="/contrasenias") 
+      button <- Regresar
     a(href="/genCont") 
       button Generar contraseña segura
     a(href="/addSitioWeb") 
@@ -12,14 +14,14 @@ html
     .contenedor-gen
       h1 Agregar nueva contraseña
   
-      form.formlogin
-        select(name='sitioPaGuardar' id='sitio-elegido') 
+      form.formlogin(action='/agregar-Contrasenia' method='POST')
+        select(name='sitio_id' id='sitio-elegido') 
           option(value="0" class='opcion' disabled selected) Selecciona para que pagina es la contraseña
 
         label(for='username') Usuario:
         input(type='text' id='usuario' name='usuario' required)
         label(for='contrasenia') Contraseña: 
-        input(type='password' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()')
+        input(type='text' id='contrasenia' name='contrasenia' required oninput='comprobarSecCont()' value=contrasenia.contrasenia)
         p#respuesta
 
         button(type='submit') Guardar Contraseña

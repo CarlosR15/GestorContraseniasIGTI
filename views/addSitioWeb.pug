@@ -5,8 +5,10 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/styles.css')
   body
+    a(href='/addCont') 
+          button <- Regresar
     .contenedor-gen
-      h1 Agregar nueva contraseña
+      h1 Agregar Sitio Web
     
       form.formlogin(action='/agregar-sitioWeb' method='POST')
         label(for='name') Nombre:

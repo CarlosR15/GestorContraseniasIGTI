@@ -5,8 +5,20 @@ const router = express.Router();
 const generarCont = require('../controllers/generarCont');
 
 router.get('/', (req, res) => {
-    const contrasenia = generarCont();
-    res.render('genCont', { contrasenia });
+    res.render('genCont', { contrasenia: '' });
+});
+
+router.post('/', (req, res) => {
+    const { tamanio, mayus, minus, num, caracEsp } = req.body;
+    const opciones = {
+        tamanio: parseInt(tamanio),
+        mayus: !!mayus,
+        minus: !!minus,
+        num: !!num,
+        caracEsp: !!caracEsp
+    };
+    const contrasenia = generarCont(opciones);
+    res.render('genCont', { contrasenia, opciones });
 });
 
 module.exports = router;
