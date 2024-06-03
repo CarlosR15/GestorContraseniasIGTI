@@ -14,7 +14,7 @@ html
     .contenedor-gen
       h1 Agregar nueva contraseña
   
-      form.formlogin(action='/agregar-Contrasenia' method='POST')
+      form.formlogin(action='/agregar-Contrasenia' method='POST' onsubmit='return validarFormulario()')
         select(name='sitio_id' id='sitio-elegido') 
           option(value="0" class='opcion' disabled selected) Selecciona para que pagina es la contraseña
 
@@ -79,6 +79,15 @@ html
           option.textContent = sitio.name;
           select.appendChild(option);
         });
+      }
+
+      function validarFormulario() {
+        var sitioSeleccionado = document.getElementById('sitio-elegido').value;
+        if (sitioSeleccionado === "0") {
+          alert("Por favor, seleccione un sitio para la contraseña. Si no tiene, puede agregar sitios con el boton (Agregar sitio web)");
+          return false; // Evita que el formulario se envíe
+        }
+        return true; // Permite el envío del formulario
       }
 
       window.onload = cargarSitios;

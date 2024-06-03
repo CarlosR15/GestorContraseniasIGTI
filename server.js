@@ -33,11 +33,13 @@ passport.use(new LocalStrategy(
     try {
       const user = await usuarioController.logearUsuario(username, password);
       if (!user) {
-        return done(null, false, { message: 'Usuario o contraseña incorrecto' });
+        throw error;
+      } else {
+        return done(null, user);
       }
-      return done(null, user);
+      
     } catch (err) {
-      return done(err);
+      return done(null, false);
     }
   }
 ));

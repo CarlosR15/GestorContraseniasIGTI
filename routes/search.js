@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
         (sitio.name && sitio.name.toLowerCase().includes(query)) || 
         (sitio.url && sitio.url.toLowerCase().includes(query))
     );
+    console.log(sitiosFiltrados);
     res.render('contrasenias', { sitios: sitiosFiltrados, contrasenias: contrasenias });
 });
 module.exports = router;

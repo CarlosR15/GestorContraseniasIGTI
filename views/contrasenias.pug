@@ -15,7 +15,7 @@ html
           button Agregar Contraseña
   
     form(action='/search', method='GET' class='search-bar')
-      input(type='text', name='q', placeholder='Buscar contraseñas')
+      input(type='text', name='q', placeholder='Buscar sitios web')
       button(type='submit') Buscar
     if sitios.length > 0
       each sitio in sitios
@@ -27,6 +27,9 @@ html
             .contenedor-cont-info
               p Usuario: #{cont.usuario}
               p Contraseña: #{cont.contrasenia}
+              //- form(action='/borrarContrasenia', method='POST')
+              //-   input(type='hidden', name='id', value=cont.id)
+              //-   button(type='submit') Eliminar Contraseña
 
-      else
-        p No se encontraron resultados.
+    else
+      p No se encontraron contraseñas guardadas.

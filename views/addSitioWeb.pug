@@ -10,9 +10,22 @@ html
     .contenedor-gen
       h1 Agregar Sitio Web
     
-      form.formlogin(action='/agregar-sitioWeb' method='POST')
+      form.formlogin(action='/agregar-sitioWeb' method='POST' onsubmit='return validarURL()')
         label(for='name') Nombre:
         input(type='text' id='name' name='name' required)
         label(for='url') Url:
         input(type='text' id='url' name='url' required)
         button(type='submit') Guardar Sitio Web
+
+    script.
+        function validarURL() { 
+          var urlEnInput = document.getElementById("url");
+          var url = urlEnInput.value;
+          var patronEnUrl = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
+          if (!patronEnUrl.test(url)) {
+            alert("Por favor, ingrese una URL válida.");
+            urlEnInput.focus();
+            return false;
+          }
+          return true;
+        }
