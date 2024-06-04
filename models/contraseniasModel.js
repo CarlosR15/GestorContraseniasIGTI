@@ -21,9 +21,20 @@ async function obtenerContPorId(usuarioId) {
       return contrasenia.map(contrasenia => new Contrasenia(contrasenia.id, contrasenia.usuario_id,
         contrasenia.sitio_id, contrasenia.usuario, contrasenia.contrasenia));
     } catch (error) {
-      console.error('Error al obtener las contrasenias por ID:', error);
+      console.error('Error al obtener las constraseñas por ID:', error);
       throw error;
     }
+}
+
+async function eliminarCont(idContrasenia) {
+  try {
+    await axios.delete(`${process.env.BASE_URL}/contrasenias/eliminarCont/${idContrasenia}`);
+    console.log('Se ha eliminado la contraseña');
+    return;
+  } catch (error) {
+    console.error('Error al borrar la contraseña por su ID:', error);
+    throw error;
+  }
 }
 
 async function agregarCont(contrasenias) {
@@ -37,5 +48,6 @@ async function agregarCont(contrasenias) {
 
 module.exports = {
     obtenerContPorId,
-    agregarCont
+    agregarCont,
+    eliminarCont
 };

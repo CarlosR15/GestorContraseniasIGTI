@@ -1,5 +1,6 @@
 $primaryColor: #3B3B98
 $secColor: #23235B
+$btnColor1: #5a14db
 
   
   
@@ -15,6 +16,20 @@ body
   flex-direction: column
   color: #dbd8d8
 
+  button 
+    background-color: #8496f5
+    border: none
+    color: #dbd8d8
+    text-align: center
+    display: inline-block
+    font-size: 16px
+    margin: 4px 2px
+    cursor: pointer
+    border-radius: 10px
+    padding: .4vh .7vw
+
+    
+
 .contenedor-gen
   background-color: $secColor
   display: flex
@@ -22,6 +37,11 @@ body
   align-items: center
   max-width: 80vh
   width: 80%
+  border-radius: 10px
+
+  #contraseniaInput
+    width: 20vw
+    margin-bottom: 1% 
 
 .contenedor-gal
   background-color: $secColor
@@ -31,15 +51,19 @@ body
   max-width: 80vw
   width: 100%
   margin-bottom: 1%
+  border-radius: 10px
 
   h3
     margin-left: 10px
 
 .contenedor-cont-info
-  border-bottom: solid
-  border-top: solid
+  background-color: black
+  border-left: solid
   border-color: #8496f5
   margin-bottom: .5%
+  border-left-color: #8b45f5
+  border-left-width: 10px
+  border-radius: 10px
 
   p
     border-color: #8496f5
@@ -53,3 +77,10 @@ body
   display: flex
   flex-direction: column
   width: 80%
+  
+.slider-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 3%
+  

@@ -12,7 +12,7 @@ router.get('/', reqIniSes.authenticate, async (req, res) => {
         // obtener las imágenes del usuario
         const contrasenias = await dbCont.obtenerContPorId(usuarioId);
         const sitios = await dbSitio.obtenerSitioNomPorId(usuarioId);
-    res.render('contrasenias', { contrasenias:contrasenias, sitios:sitios });
+        res.render('contrasenias', { contrasenias:contrasenias, sitios:sitios });
     } catch (error) { //captura el error y lo imprime en la consola
         console.error('Error al obtener contraseñas del usuario:', error);
     }

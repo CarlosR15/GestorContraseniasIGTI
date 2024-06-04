@@ -31,9 +31,9 @@ html
                 span.cont-mostrada(style='display: none') #{cont.contrasenia}
                 span.cont-sinmostrar *************
                 button(type='button' onclick='btnVisibilidadCont(this)') Mostrar
-              //- form(action='/borrarContrasenia', method='POST')
-              //-   input(type='hidden', name='id', value=cont.id)
-              //-   button(type='submit') Eliminar Contraseña
+              form(action='/borrarContrasenia' method='POST' onsubmit='recargarPaginaDespuesDeElim(event)')
+                input(type='hidden' name='idContrasenia' value=`${cont.id}`)
+                button(type='submit') Eliminar Contraseña
 
     else
       p No se encontraron contraseñas guardadas.
@@ -52,4 +52,11 @@ html
           contSinMostrar.style.display = 'inline';
           button.textContent = 'Mostrar';
         }
+      }
+
+      function recargarPaginaDespuesDeElim(event) { 
+        // Recargar la  pagina para que jale, porque si no se traba la pobre unu
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }

@@ -12,15 +12,16 @@ html
       form(action='/addCont' method='post')
         input(type='text', name='contrasenia', id='contraseniaInput', value=contrasenia)
         button(type='submit') Guardar
-      form(action='/genCont' method='post')
+      form(action='/genCont' method='post' onsubmit='return validargenContForm()')
         .slider-container
           span.slider-label Cuantos caracteres: 
-          span.char-count(id='charCount') 12
+            span.char-count(id='charCount') 12
           br
-          span 8
-            input#slider(type='range', name='tamanio', min='8', max='28', value='12')
-          span 28
-
+          .span-slider.cont
+            span 8
+              input#slider(type='range', name='tamanio', min='8', max='28', value='12')
+            span 28
+        .input-slider-cont
           br
           label 
             input(type='checkbox', name='mayus', checked) 
@@ -51,3 +52,23 @@ html
       slider.addEventListener('input', function() {
         charCount.textContent = slider.value;
       });
+
+      function validargenContForm() {
+        var seleccionBox = document.querySelectorAll('input[type="checkbox"]');
+        var almenosUnoSelec = false;
+
+        for (var i = 0; i < seleccionBox.length; i++) {
+          if (seleccionBox[i].checked) {
+            almenosUnoSelec = true;
+            break;
+          }
+        }
+
+        if (!almenosUnoSelec) {
+          alert("Debe seleccionar tener marcado al menos una Checkbox");
+          return false; // con este ya no se envia
+        }
+
+        // Se evia el formulario si el pasa del if
+        return true;
+      }

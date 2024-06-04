@@ -7,6 +7,8 @@ html
     body
       .contenedor-gen
         h2 Iniciar Sesión 
+        if error
+          p.error= error 
         form.formlogin(action='/login' method='POST' class='login-form')
           label(for='username' class='form-label' id='labelform') Usuario
           input(type='text' name='username' id='username' placeholder='Usuario' class='form-input', required)

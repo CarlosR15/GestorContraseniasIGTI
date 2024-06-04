@@ -17,8 +17,13 @@ async function agregarCont(id_usuario, sitio_id, usuario, contrasenia) {
     return await contraseniasModel.agregarCont(contrasenias);
   }
 
+async function eliminarCont(idContrasenia) {
+    return await contraseniasModel.eliminarCont(idContrasenia);
+}
+
 
 module.exports = {
     obtenerContPorId,
-    agregarCont
+    agregarCont,
+    eliminarCont
 };
