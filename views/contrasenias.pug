@@ -26,10 +26,30 @@ html
           each cont in contraseniasSitio
             .contenedor-cont-info
               p Usuario: #{cont.usuario}
-              p Contraseña: #{cont.contrasenia}
+              .contenedor-cont-cont
+                span Contraseña: 
+                span.cont-mostrada(style='display: none') #{cont.contrasenia}
+                span.cont-sinmostrar *************
+                button(type='button' onclick='btnVisibilidadCont(this)') Mostrar
               //- form(action='/borrarContrasenia', method='POST')
               //-   input(type='hidden', name='id', value=cont.id)
               //-   button(type='submit') Eliminar Contraseña
 
     else
       p No se encontraron contraseñas guardadas.
+    
+    script.
+      function btnVisibilidadCont(button) { 
+        const contContenedor = button.parentElement;
+        const contPaMostrar = contContenedor.querySelector('.cont-mostrada');
+        const contSinMostrar = contContenedor.querySelector('.cont-sinmostrar');
+        if (contPaMostrar.style.display === 'none') {
+          contPaMostrar.style.display = 'inline';
+          contSinMostrar.style.display = 'none';
+          button.textContent = 'Ocultar';
+        } else {
+          contPaMostrar.style.display = 'none';
+          contSinMostrar.style.display = 'inline';
+          button.textContent = 'Mostrar';
+        }
+      }
