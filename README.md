@@ -1,4 +1,4 @@
-# Proyecto node js Carlos Rubén Romellón IGTI Gestor de Contraseña
+# Proyecto node js Carlos Rubén Romellón IGTI Aplicación de Gestor de Contraseñas
 
 ## Instrucciones y comentarios
 
