@@ -9,7 +9,7 @@ html
       ul
            
         a(href='/logout') 
-          button Cerrar Sesion
+          button.btnRojo Cerrar Sesion
            
         a(href='/addCont') 
           button Agregar Contraseña
@@ -33,7 +33,7 @@ html
                 button(type='button' onclick='btnVisibilidadCont(this)') Mostrar
               form(action='/borrarContrasenia' method='POST' onsubmit='recargarPaginaDespuesDeElim(event)')
                 input(type='hidden' name='idContrasenia' value=`${cont.id}`)
-                button(type='submit') Eliminar Contraseña
+                button.btnRojo(type='submit') Eliminar Contraseña
 
     else
       p No se encontraron contraseñas guardadas.

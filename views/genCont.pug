@@ -6,7 +6,7 @@ html
     link(rel='stylesheet', href='/css/styles.css')
   body
     a(href="/addCont")
-      button <- Regresar
+      button.btnRojo <- Regresar
     .contenedor-gen
       h1 Generar Contraseña Segura
       form(action='/addCont' method='post')
@@ -17,10 +17,10 @@ html
           span.slider-label Cuantos caracteres: 
             span.char-count(id='charCount') 12
           br
-          .span-slider.cont
-            span 8
-              input#slider(type='range', name='tamanio', min='8', max='28', value='12')
-            span 28
+          .span-slider-cont
+            span 2
+              input#slider(type='range', name='tamanio', min='2', max='48', value='12')
+            span 48
         .input-slider-cont
           br
           label 

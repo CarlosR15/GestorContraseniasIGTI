@@ -21,6 +21,33 @@ body button {
   cursor: pointer;
   border-radius: 10px;
   padding: 0.4vh 0.7vw;
+  font-weight: bold;
+}
+body input {
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  padding: 0.4vh 0.7vw;
+}
+body select {
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  padding: 0.4vh 0.7vw;
+}
+
+.btnRojo {
+  background-color: #e63740;
+  border: none;
+  color: #dbd8d8;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.4vh 0.7vw;
+  font-weight: bold;
 }
 
 .contenedor-gen {
@@ -62,7 +89,13 @@ body button {
 }
 .contenedor-cont-info p {
   border-color: #8496f5;
-  margin-left: 4px;
+  margin-left: 0.4%;
+}
+.contenedor-cont-info button {
+  margin-left: 0.4%;
+}
+.contenedor-cont-info span {
+  margin-left: 0.4%;
 }
 
 .datosCont-container {
